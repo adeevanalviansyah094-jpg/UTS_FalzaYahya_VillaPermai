@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pesan vila di Puncak, Bogor. Cek ketersediaan dan lihat total biaya sebelum memesan.">
+  <title>Villa Permai | Menginap Tenang di Puncak</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigasi utama">
+      <a class="nav__brand" href="#atas">Villa Permai</a>
+      <ul class="nav__links">
+        <li><a href="#villa">Pilihan Vila</a></li>
+        <li><a href="#pesan">Pesan</a></li>
+        <li><a href="#pesanan">Pesanan Saya</a></li>
+      </ul>
+      <button class="btn btn--ghost nav__tema" type="button" id="tombolTema" aria-label="Ganti tema terang atau gelap">Mode gelap</button>
+    </nav>
+  </header>
+
+  <main id="atas">
+    <section class="hero">
+      <div class="hero__isi">
+        <h1 class="hero__judul">Tiga vila di tengah kabut pinus Puncak</h1>
+        <p class="hero__teks">Pilih tanggal, lihat total biaya langsung di layar, lalu pesan tanpa perlu menunggu balasan WhatsApp.</p>
+        <div class="hero__aksi">
+          <a class="btn btn--utama" href="#pesan">Mulai memesan</a>
+          <a class="btn btn--ghost btn--terang" href="#villa">Lihat vila</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="villa" aria-labelledby="judulVilla">
+      <h2 class="section__judul" id="judulVilla">Pilihan vila</h2>
+      <p class="section__teks">Status ketersediaan ikut berubah mengikuti tanggal yang Anda isi di formulir.</p>
+      <div class="toolbar">
+        <label class="field toolbar__cari">
+          <span class="field__label">Cari vila</span>
+          <input class="field__input" type="search" id="kataKunci" placeholder="Nama, lokasi, atau fasilitas">
+        </label>
+        <label class="field">
+          <span class="field__label">Urutkan</span>
+          <select class="field__input" id="urutan">
+            <option value="asli">Rekomendasi</option>
+            <option value="murah">Harga terendah</option>
+            <option value="mahal">Harga tertinggi</option>
+            <option value="besar">Kapasitas terbesar</option>
+          </select>
+        </label>
+        <label class="toolbar__cek">
+          <input type="checkbox" id="hanyaTersedia">
+          <span>Hanya yang tersedia</span>
+        </label>
+      </div>
+      <div class="villa-grid" id="daftarVila"></div>
+    </section>
+
+    <section class="section section--gelap" id="pesan" aria-labelledby="judulPesan">
+      <h2 class="section__judul" id="judulPesan">Pesan vila</h2>
+      <p class="section__teks">Total biaya muncul otomatis begitu tanggal dan jumlah tamu terisi.</p>
+      <div class="booking">
+        <form class="form" id="formPesan" novalidate>
+          <label class="field">
+            <span class="field__label">Nama tamu</span>
+            <input class="field__input" type="text" id="nama" autocomplete="name" placeholder="Nama lengkap">
+            <span class="field__error" data-error="nama"></span>
+          </label>
+          <label class="field">
+            <span class="field__label">Pilih vila</span>
+            <select class="field__input" id="unitVila"></select>
+            <span class="field__error" data-error="unit"></span>
+          </label>
+          <label class="field">
+            <span class="field__label">Tanggal check-in</span>
+            <input class="field__input" type="date" id="checkin">
+            <span class="field__error" data-error="checkin"></span>
+          </label>
+          <label class="field">
+            <span class="field__label">Tanggal check-out</span>
+            <input class="field__input" type="date" id="checkout">
+            <span class="field__error" data-error="checkout"></span>
+          </label>
+          <label class="field">
+            <span class="field__label">Jumlah tamu</span>
+            <input class="field__input" type="number" id="tamu" min="1" max="10" value="2">
+            <span class="field__error" data-error="tamu"></span>
+          </label>
+          <div class="form__aksi">
+            <button class="btn btn--ghost btn--terang" type="button" id="tombolCek">Cek Ketersediaan</button>
+            <button class="btn btn--utama" type="submit">Pesan Sekarang</button>
+          </div>
+        </form>
+
+        <aside class="ringkasan" aria-live="polite">
+          <h3 class="ringkasan__judul">Ringkasan biaya</h3>
+          <div class="ringkasan__isi" id="areaHasil"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="pesanan" aria-labelledby="judulPesanan">
+      <h2 class="section__judul" id="judulPesanan">Pesanan saya</h2>
+      <p class="section__teks">Tersimpan di peramban ini, jadi tetap ada saat halaman dibuka kembali.</p>
+      <div class="pesanan" id="daftarPesanan"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__isi">
+      <p class="footer__merek">Villa Permai</p>
+      <p>Pemilik: Pak Hendra, Kawasan Puncak, Kabupaten Bogor</p>
+      <p>WhatsApp: <a href="https://wa.me/6281234567890" target="_blank" rel="noopener">0812-3456-7890</a> &nbsp; Surel: <a href="mailto:halo@villapermai.id">halo@villapermai.id</a></p>
+    </div>
+    <p class="footer__hak">UTS Teknologi Web, Ade Evan Alviansyah (24011130331)</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
