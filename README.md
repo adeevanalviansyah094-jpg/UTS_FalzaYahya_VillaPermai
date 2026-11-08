@@ -1,74 +1,77 @@
 # Villa Permai
 
-Halaman web pemesanan vila untuk usaha keluarga Pak Hendra di kawasan Puncak, Kabupaten Bogor. Halaman ini statis (HTML, CSS, JavaScript) tanpa server dan tanpa basis data.
+Website pemesanan vila di Puncak, Kabupaten Bogor. Pengunjung dapat melihat pilihan vila, memeriksa ketersediaan, dan memperkirakan biaya sebelum memesan. Dibuat dengan HTML, CSS, dan JavaScript tanpa server atau basis data.
 
-Pengerja: Falza Yahya
-Mata kuliah: Teknologi Web, UTS
+## Identitas
+
+- **Nama:** Ade Evan Alviansyah
+- **NIM:** 24011130331
+- **Mata kuliah:** Teknologi Web (UTS)
+
+## Repository
+
+[github.com/maulvinazir87-cmd/UTS_FalzaYahya_VillaPermai](https://github.com/maulvinazir87-cmd/UTS_FalzaYahya_VillaPermai)
+
+## Dokumentasi tampilan
+
+### Tampilan web
+
+<a href="./assets/dokumentasi-web.png">
+  <img src="./assets/dokumentasi-web.png" alt="Tangkapan layar website Villa Permai pada tampilan web" width="720">
+</a>
+
+### Tampilan mobile
+
+<a href="./assets/dokumentasi-mobile.png">
+  <img src="./assets/dokumentasi-mobile.png" alt="Tangkapan layar website Villa Permai pada tampilan mobile" width="280">
+</a>
+
+Klik gambar untuk melihat tangkapan layar ukuran penuh.
 
 ## Fitur
 
-- Tiga vila dirender dari array objek JavaScript memakai `createElement` dan `appendChild`.
-- Status ketersediaan pada kartu berubah mengikuti tanggal yang diisi di formulir.
-- Cari vila berdasarkan nama, lokasi, atau fasilitas, urutkan berdasarkan harga atau kapasitas, dan saring hanya yang tersedia.
-- Ringkasan biaya muncul otomatis sebelum tombol "Pesan Sekarang" ditekan.
-- Deteksi bentrok jadwal, termasuk terhadap pesanan yang dibuat pengunjung sendiri.
-- Validasi berbahasa Indonesia dan penanganan error tanpa membuat halaman crash.
-- Penyimpanan lokal (`localStorage`): nama tamu terakhir, daftar pesanan, vila favorit, dan pilihan tema.
-- Konfirmasi pesanan lewat tautan WhatsApp ke pemilik.
-- Mode terang dan gelap, responsif pada layar 768px dan 480px.
+- Tiga pilihan vila dengan foto, fasilitas, kapasitas, dan harga.
+- Pencarian, pengurutan, dan filter ketersediaan vila.
+- Pemeriksaan ketersediaan berdasarkan tanggal.
+- Ringkasan biaya otomatis, validasi formulir, dan deteksi bentrok jadwal.
+- Penyimpanan nama, pesanan, favorit, dan preferensi tema di `localStorage`.
+- Konfirmasi pesanan melalui WhatsApp.
+- Tampilan responsif dan pilihan tema terang atau gelap.
 
-## Rumus total biaya
+## Perhitungan biaya
 
-```
+```text
 sewa           = harga per malam x jumlah malam
 akhir pekan    = harga per malam x 15% x jumlah malam Jumat dan Sabtu
-tamu tambahan  = (jumlah tamu - 4) x Rp75.000 x jumlah malam   (hanya jika tamu lebih dari 4)
-diskon         = (sewa + akhir pekan) x 10%                    (hanya jika menginap 3 malam atau lebih)
+tamu tambahan  = (jumlah tamu - 4) x Rp75.000 x jumlah malam (jika tamu lebih dari 4)
+diskon         = (sewa + akhir pekan) x 10% (jika menginap 3 malam atau lebih)
 
 total          = sewa + akhir pekan + tamu tambahan - diskon
 ```
 
-Harga sewa berlaku per unit vila, bukan per orang. Satu vila punya batas kapasitas sendiri, dan pemesanan melebihi kapasitas ditolak dengan pesan yang jelas.
+Harga berlaku per unit vila. Jumlah tamu tidak boleh melebihi kapasitas vila.
 
-## Struktur folder
+## Menjalankan proyek
 
-```
-uts-vila-permai/
-  index.html
-  style.css
-  script.js
-  README.md
-  .gitignore
-  assets/
-    vila-1.jpg
-    vila-2.jpg
-    vila-3.jpg
-```
+Buka `index.html` di browser atau gunakan ekstensi Live Server di VS Code. Tidak perlu proses build maupun instalasi dependensi.
 
-Foto vila sudah tersedia secara lokal agar kartu dan bagian hero tidak kosong saat halaman dibuka. Foto diunduh dari Unsplash dan digunakan sesuai [lisensi Unsplash](https://unsplash.com/license):
+## Struktur proyek
 
-- [Foto Villa Kabut Pinus](https://images.unsplash.com/photo-1600596542815-ffad4c1539a9)
-- [Foto Villa Lembah Teh](https://images.unsplash.com/photo-1613490493576-7fde63acd811)
-- [Foto Villa Senja Gunung](https://images.unsplash.com/photo-1613977257363-707ba9348227)
-
-## Cara menjalankan
-
-Buka `index.html` langsung di peramban, atau gunakan ekstensi Live Server di VS Code. Tidak ada proses build dan tidak ada dependensi.
-
-## Tangkapan layar
-
-Tambahkan tangkapan layar ke folder `assets` lalu tampilkan di sini:
-
-```
-![Beranda](assets/screenshot-beranda.png)
-![Formulir dan ringkasan biaya](assets/screenshot-pesan.png)
-![Tampilan ponsel](assets/screenshot-mobile.png)
+```text
+index.html
+style.css
+script.js
+README.md
+assets/
+  vila-1.jpg
+  vila-2.jpg
+  vila-3.jpg
+  dokumentasi-web.png
+  dokumentasi-mobile.png
 ```
 
-## Riwayat commit yang disarankan
+Foto vila diunduh dari Unsplash dan disimpan lokal di folder `assets`. Sumber foto dapat dilihat di [Unsplash](https://unsplash.com/license):
 
-1. `Buat struktur folder dan kerangka HTML`
-2. `Tambah gaya, tata letak responsif, dan tema`
-3. `Tambah data vila, render kartu, pencarian, dan filter`
-4. `Tambah perhitungan biaya, validasi, dan penyimpanan lokal`
-5. `Rapikan README dan tambah tangkapan layar`
+- [Villa Kabut Pinus](https://images.unsplash.com/photo-1600596542815-ffad4c1539a9)
+- [Villa Lembah Teh](https://images.unsplash.com/photo-1613490493576-7fde63acd811)
+- [Villa Senja Gunung](https://images.unsplash.com/photo-1613977257363-707ba9348227)
